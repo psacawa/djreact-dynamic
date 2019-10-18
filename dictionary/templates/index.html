@@ -7,17 +7,11 @@
 		{% load static %}
 		<link rel="stylesheet" href="{% static "dictionary/styles.css" %}" type="text/css" charset="utf-8">
 		<script src="{% static "dictionary/index.js" %}" charset="utf-8"></script>
-		{% comment %} <script charset="utf-8"> {% endcomment %}
-		{% comment %}   function changeHandler () { {% endcomment %}
-		{% comment %}     const completions = await fetch ('api/completions.json'); {% endcomment %}
-		{% comment %}     console.log (completions); {% endcomment %}
-		{% comment %}   } {% endcomment %}
-		{% comment %} </script> {% endcomment %}
 	</head>
 	<body>
 		<h3>Słownik Języka Polskiego</h3>
 		<form action="" method="" accept-charset="utf-8">
-			<input type="text" onchange="changeHandler()"value="" name="prefix" id="prefix"/>
+			<input type="text" onchange="onChangeHandler()"value="" name="prefix" id="prefix"/>
 			<input type="submit" value="Wprowadź" name="submit" id="submit"/>
 		</form>
 	</body>
