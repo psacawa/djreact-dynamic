@@ -73,7 +73,8 @@ class EntryCompletions(generics.ListAPIView):
             raise Http404
 
         logger.info (f'In get_queryset with prefix={prefix}') 
-        query=  Entry.objects.filter (text__startswith= prefix)
+        #  query=  Entry.objects.filter (text__startswith= prefix)
+        query=  Entry.objects.filter (text__contains= prefix)
         return query [:self.MAX_COMPLETIONS]
 
     serializer_class = EntrySerializer

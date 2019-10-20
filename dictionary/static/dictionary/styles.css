@@ -1,3 +1,19 @@
-li a {
-    color: green;
+body {
+	max-width: 650px;
+	margin: auto
+}
+
+h3 {
+	/* display: inline; */
+	color:  blue;
+	border: 2px solid blue;
+	padding: 0.5em 0.5em;
+	margin: 2em;
+	font-style:   normal;
+	width: 33%;
+	background-color: orange;
+}
+
+div.completions {
+	word-wrap: break-word;
 }
