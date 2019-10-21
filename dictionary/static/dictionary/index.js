@@ -6,23 +6,40 @@ window.onload = () => {
 function onKeyupHandler(argument) {
 
 	prefixElement = document.querySelector ('#prefix')
-	prefix = prefixElement.value
+	currentPrefix= prefixElement.value
 
-	if (prefix.length >= 3) {
-		fetch ("entries/complete.json?prefix=" + prefix)
-			.then (response => response.json ())
-			.then (data => {
-				// console.log (data);
-				completions = data ['results'].map (result => result['text'])
+	if (currentPrefix.length >= 3) {
+		if (typeof (this.timeoutID) === 'number' ) {
+			// console.log (`timer already set ${this.timeoutID}`)
+			window.clearTimeout (this.timeoutID)
+		}
+		this.timeoutID = window.setTimeout (function (prefix) {
+			fetch ("entries/complete.json?prefix=" + prefix)
+				.then (response => response.json ())
+				.then (data => {
+					completions = data ['results'].map (result => result['text'])
+					text = completions.join (' ')
+					// console.log (text)
 
-				text = completions.join (' ')
-				HtmlElement
-				var completionElement = document.getElementById ('completions')
-				completionElement.innerHTML = text
-		
-			})
-			.catch (errors => {
-				console.log (errors)
-			})
+					var completionElement = document.getElementById ('completions')
+					while (completionElement.firstChild)
+						completionElement.removeChild (completionElement.firstChild)
+					for (const comp of completions) {
+						childNode = document.createElement ('li')	
+						childNode.innerHTML = comp
+						completionElement.appendChild (childNode)
+					}
+					this.timeoutID = undefined
+				})
+				.catch (errors => {
+					console.log ('in the error code')
+					console.error (errors)
+				})
+		}.bind (this), 200, currentPrefix)
+		// console.log (`set timer: ${this.timeoutID}`)
+	} else {
+		var completionElement = document.getElementById ('completions')
+		while (completionElement.firstChild)
+			completionElement.removeChild (completionElement.firstChild)
 	}
 }
