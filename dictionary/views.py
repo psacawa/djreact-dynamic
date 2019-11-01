@@ -74,7 +74,7 @@ class EntryCompletions(generics.ListAPIView):
 
         logger.info (f'In get_queryset with prefix={prefix}') 
         #  query=  Entry.objects.filter (text__startswith= prefix)
-        query=  Entry.objects.filter (text__contains= prefix)
+        query=  Entry.objects.filter (text__contains= prefix).order_by ('-score')
         return query [:self.MAX_COMPLETIONS]
 
     serializer_class = EntrySerializer
