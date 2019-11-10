@@ -1,13 +1,12 @@
-window.onload = () => {
-  // document.querySelector ('#prefix').addEventListener ('change', onChangeHandler)
-  document.querySelector ('#prefix').addEventListener ('keyup',  onKeyupHandler)
-}
+import React from 'react';
+import ReactDOM from 'react-dom';
+// import { App } from './App'
 
-function onKeyupHandler(event:any) {
+// function onKeyupHandler(event:any) {
+function onKeyupHandler() {
 
-  const prefixElement : Element = document.querySelector ('#prefix')
-  const currentPrefix = prefixElement.getAttribute('value')
-  console.log (currentPrefix)
+  const prefixElement : HTMLInputElement = document.getElementById ('prefix') as HTMLInputElement
+  const currentPrefix : string = prefixElement.value
 
   if (currentPrefix.length >= 3) {
     if (typeof (this.timeoutID) === 'number' ) {
@@ -20,8 +19,8 @@ function onKeyupHandler(event:any) {
         .then (data => {
           // console.log ('fetch succeeded');
           let completions = data ['results'].map ((result:any) => Object ({
-            text : result['text'],
-            score : result['score']
+            text:  result['text'],
+            score: result['score']
           }));
           // console.log (completions)
           var completionElement = document.getElementById ('completions')
@@ -47,3 +46,10 @@ function onKeyupHandler(event:any) {
       completionElement.removeChild (completionElement.firstChild)
   }
 }
+
+window.onload = () => {
+  // document.querySelector ('#prefix').addEventListener ('change', onChangeHandler)
+  document.querySelector ('#prefix').addEventListener ('keyup',  onKeyupHandler)
+}
+
+// ReactDOM.render (<App>, document.getElementById ("react-root"))

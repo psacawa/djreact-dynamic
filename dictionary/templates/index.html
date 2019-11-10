@@ -9,7 +9,7 @@
 
 		<link rel="stylesheet" href="{% static "dictionary/styles.css" %}" type="text/css" media="screen" charset="utf-8">
 		<link rel="icon" href="{% static "favicon.ico" %}">
-    <script src="{% static "dictionary/index.js" %}" charset="utf-8"></script>
+    <script src="{% static "dictionary/bundle.js" %}" charset="utf-8"></script>
 	</head>
 	<body>
 		<div class="box">
@@ -23,6 +23,8 @@
 		{% comment %} </datalist> {% endcomment %}
 		<ul id="completions">
 		</ul>
+    <div id="react-root">
+    </div>
 		<script 
 			src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
 			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
