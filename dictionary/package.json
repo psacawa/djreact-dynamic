@@ -1,0 +1,43 @@
+{
+  "name": "dynamic",
+  "version": "1.0.0",
+  "description": "Dynamic loading of results from django backend",
+  "repository": "right here",
+  "main": "asdf/src/index.tsx",
+  "scripts": {
+    "build": "webpack --watch",
+    "serve": "webpack-dev-server --progress",
+    "lint": "eslint src/**"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.3",
+    "@types/react-select": "^3.0.8",
+    "@typescript-eslint/eslint-plugin": "^2.6.1",
+    "@typescript-eslint/parser": "^2.6.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.6.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-react": "^7.16.0",
+    "prettier": "^1.18.2",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^1.0.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "package.json": "^2.0.1",
+    "react": "^16.11.0",
+    "react-bootstrap": "^1.0.0-beta.14",
+    "react-dom": "^16.11.0",
+    "react-select": "^3.0.8"
+  }
+}
